@@ -1,35 +1,54 @@
-# salaryinfo
-Salary Info Application
-------- OPEN PSQL ------------
+VERSION PYTHON Python 3.7.5 
 
-CREATE USER salary WITH PASSWORD 'root';
-ALTER USER salary CREATEDB;
-ALTER USER salary WITH SUPERUSER;
-\du
-CREATE DATABASE infsalary OWNER salary;
-GRANT ALL PRIVILEGES ON DATABASE infsalary to salary;
-\c infsalary
+********************CREACION BASE DE DATOS**************
+CREACION DE BASE DE DATOS EN POSTGRES
+0) Abrir la consola de postgres (PSQL)
+1) Crear usuario y contrasena
+	CREATE USER salary WITH PASSWORD 'root';	
+	ALTER USER salary CREATEDB;
+	ALTER USER salary WITH SUPERUSER;
+	\du
+	CREATE DATABASE infsalary OWNER salary;
+	
+	GRANT ALL PRIVILEGES ON DATABASE infsalary to salary;
+	\c infsalary
 
--------- ABRIR CMD  ----------
+*****************CREAR ENTORNO VIRTUAL************************
+	python -m venv salinf_virtual
 
-python -m venv salinf
-cd salinf
-cd Scripts
-activate
-cd ..
-###############Descargar repositorio, descomprimir carpeta y agregarla al entorno virtual
-pip install --upgrade pip
-pip install django
-pip install psycopg2-binary
-python -m pip install Pillow
-pip install requests
-cd salinf
-python manage.py createsuperuser
->salary
->salary@postgres.com
-password>root
-password>root
-python manage.py runserver
+******************DESCARGAR REPOSITORIO***********************
+
+	DESCARGAR REPOSITORIO DEL PROYECTO
+		0) Descomprimir el archivo adjunto
+		1) Pegar carpeta 'salinf' en la ruta base del entorno virtual
+
+************CORRIENDO EL ENTORNO VIRTUAL*********************
+	Abrir CMD
+		#-- Ubiquese en la ruta del entorno virtual creado
+		-> cd salinf_virtual
+		-> cd Scripts
+		-> activate
+
+		***** INSTALAR DEPENDENCIAS *****
+		pip install --upgrade pip
+		pip install django
+		pip install psycopg2-binary
+		python -m pip install Pillow
+		pip install requests
+		
+		#-- Ubicarse dentro del proyecto
+		-> cd ..
+		-> cd salinf	#Esta es la carpeta que fue descomprimida
+		#-- Crear superusuario para administracion django
+			-> python manage.py createsuperuser
+			-> user : salary
+			-> email:salary@postgres.com
+			-> password : root
+			-> password : root
+		#Ejecutar servidor
+			python manage.py runserver
+
+
 
 
 ---------- ABRIR PAGINA DE ADMINISTRACION ----------
